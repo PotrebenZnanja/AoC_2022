@@ -1,7 +1,6 @@
 from collections import defaultdict
 path=[]
 dic = defaultdict(int)
-dicl = {}
 while(True):
     g = input()
     if g=="":
@@ -18,19 +17,15 @@ while(True):
         try:
             val = int(stavek[0])
             #print(path,val)
-            for i in range(len(path)+1):
-                print('/'.join(path[:i]))
-                if '/'.join(path[:i]) not in dicl:
-                    dicl['/'.join(path[:i])] = val
-                else:
-                    dicl['/'.join(path[:i])] += val
+            for i in range(1,len(path)+1):
+                print(i)
                 dic['/'.join(path[:i])] +=val
+            print(dic)
         except:
             pass
 a = 0
 meja = 40000000
 za_spraznit = dic["/"]-meja
-p1 = 0
 p2 = 1e9
 print("Za spraznit je: ",za_spraznit)
 for k,v in dic.items():
@@ -39,5 +34,6 @@ for k,v in dic.items():
     if v>= za_spraznit:
         p2 = min(p2,v)
 print(a)
-print(p1)
 print(p2)
+
+
